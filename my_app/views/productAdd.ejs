@@ -12,6 +12,29 @@
 				<div class="col-12">
 					<h2 class="products-title">Agregar productos</h2>
 				</div>
+
+				<main class="add">
+                    <form action="/" method="get">
+        
+                        <div>
+                            <label for="imagen">imagen:</label>
+                            <input type="file" name="imagen" id="imagen" placeholder="">
+                        </div>
+						<div>
+							<label for="nombreProducto">Nombre del producto:</label> 
+							<input type="text" name="nombreProducto" id="nombreProducto" placeholder="Nombre del producto">
+						</div>
+
+						<div>
+							<label for="descripcion">Descripción:</label> 
+							<input type="text" name="descripcion" id="descripcion" placeholder="describa el producto">
+						</div>
+                    <!-- btns-->
+                    <button type="submit"> enviar </button>
+                        </form>
+        
+                </main>
+
 				<!-- Show the "ultimos" products -->
 				<h2 class="col-12"> <i>///////////////////////////////////////// <br> Acá va el formulario para agregar prodcutos al catálogo. <br>
 				Debe cumplir con los puntos de la consigna y ser coherente con la tabla de la base de datos. <br>
