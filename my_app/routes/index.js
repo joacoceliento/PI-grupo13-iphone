@@ -10,6 +10,6 @@ router.get('/', function(req, res, next) {
 });
 */
 
-router.get('/index', indexController.index );
+router.get('/', indexController.index );
 
 module.exports = router;
