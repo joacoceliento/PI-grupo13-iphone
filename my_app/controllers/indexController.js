@@ -1,11 +1,15 @@
 // Cosas para preguntar 
 
 /* 
-    1 - Cuantos archivos de controllers y de rutas tengo que hacer por página?
-            puedo juntarlas y ponerlas en menos carpetas?
+    1 - "El “nombre de usuario” deberá obtenerlo del módulo de datos."
+            A que se refiere con esto en el punto 8? de que forma debo extraer el nombre del ususario
+            LO MISMO PARA EL PUNTO 9
 
-    2 - El HEAD de cada página en view, debo ponerla en una carpeta partials como lo hice con footer?
-            si hago eso, los links con el css y las imagenes, siguen funcionando?
+    2 -  "No es necesario para esta entrega que se vean los datos del producto 
+        sobre el cual clieckeaste para llegar al detalle"
+            A q se refire esto en el punto 10?
+
+    3 - "Preguntar punto 10 y 11"
 
 */
 
