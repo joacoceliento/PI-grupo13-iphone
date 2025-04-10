@@ -1,4 +1,3 @@
-
 const info = require('../db/info')
 
 let productController = {
@@ -10,7 +9,7 @@ let productController = {
                         // 
 
         for (let i = 0; i < infoProducto.length; i++) {
-            const idProducto = infoProducto.id[i];
+            const idProducto = infoProducto[i].id;
 
             if (idPedido == idProducto) {
                 obJ = {
@@ -29,7 +28,8 @@ let productController = {
     },
 
     searchResults: function (req, res) {
-        res.render('searchResults')
+        let productos = info.productos;
+        res.render('searchResults', { productos: productos })
     }
     
 }

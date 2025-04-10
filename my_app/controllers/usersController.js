@@ -1,9 +1,9 @@
-var database = require('../db/info');
+const database = require('../db/info');
 
 let usersController = {
     perfil: function (req, res) {
         // elegimos al primer usuario como ejemplo de obtener de base de datos
-        let usuario = database.usuarios[0];
+        let usuario = database.usuario;
         res.render('profile', { usuario: usuario });
     },
 
