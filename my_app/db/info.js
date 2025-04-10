@@ -7,7 +7,7 @@ let baseDeDatos = {
       {
         mail: "pedro3000@gmail.com",
         usuario: "Pedro Bobzin",
-        contraseña: "28432917",
+        contraseña: "Pedro8279",
         fechaNacimiento: "26/09/2005",
         dni: 47987222,
         fotoPerfil: "default-image.png"
@@ -45,41 +45,137 @@ let baseDeDatos = {
         fotoPerfil: "default-image.png"
       }
     ],
-  
+
+
     productos: [
         {
           id: 1,
           imagenProducto: "img-macbook-pro-2019.jpg",
           nombreProducto: "MacBook Pro 13'' 2019",
-          descripcion: "Potente notebook con Touch Bar y pantalla Retina. Ideal para trabajo creativo y rendimiento exigente."
+          descripcion: "Potente notebook con Touch Bar y pantalla Retina. Ideal para trabajo creativo y rendimiento exigente.",
+          comentarios: [{
+                
+                nombreUsuario: "Pedro",
+                textoComentario: "Muy buen producto, llegó rápido.",
+                imagenPerfil: "",
+            },
+            {
+                nombreUsuario: "Juan Cruz",
+                textoComentario: "¡Gran calidad y facil de usar!",
+                imagenPerfil: "",
+            }, 
+            {
+                nombreUsuario: "Emilia",
+                textoComentario: "Esperaba más del producto",
+                imagenPerfil: "",
+            },
+            {
+                nombreUsuario: "Federico",
+                textoComentario: "Me trajeron un color distinto al que pedi, y encima se atrasaron con el pedido",
+                imagenPerfil: "",
+            },
+            {
+                nombreUsuario: "Samuel",
+                textoComentario: "Excelente servicio",
+                imagenPerfil: "",
+            }]
         },
         {
           id: 2,
           imagenProducto: "img-samsung-galaxy-s10.jpg",
           nombreProducto: "Samsung Galaxy S10",
-          descripcion: "Smartphone de alta gama con pantalla AMOLED, triple cámara y diseño elegante. Excelente experiencia Android."
+          descripcion: "Smartphone de alta gama con pantalla AMOLED, triple cámara y diseño elegante. Excelente experiencia Android.",
+          comentarios: [{
+                
+            nombreUsuario: "Pedro",
+            textoComentario: "Muy buen producto, llegó rápido.",
+            imagenPerfil: "",
+        },
+        {
+            nombreUsuario: "Juan Cruz",
+            textoComentario: "¡Gran calidad y facil de usar!",
+            imagenPerfil: "",
+        }, 
+        {
+            nombreUsuario: "Emilia",
+            textoComentario: "Esperaba más del producto",
+            imagenPerfil: "",
+        },
+        {
+            nombreUsuario: "Federico",
+            textoComentario: "Me trajeron un color distinto al que pedi, y encima se atrasaron con el pedido",
+            imagenPerfil: "",
+        },
+        {
+            nombreUsuario: "Samuel",
+            textoComentario: "Excelente servicio",
+            imagenPerfil: "",
+        }]
         },
         {
           id: 3,
           imagenProducto: "img-tv-samsung-smart.jpg",
           nombreProducto: "Smart TV Samsung 55'' UHD",
-          descripcion: "Televisor 4K Ultra HD con colores vibrantes, sonido envolvente y acceso a plataformas de streaming."
+          descripcion: "Televisor 4K Ultra HD con colores vibrantes, sonido envolvente y acceso a plataformas de streaming.",
+          comentarios: [{
+                
+            nombreUsuario: "Pedro",
+            textoComentario: "Muy buen producto, llegó rápido.",
+            imagenPerfil: "",
+        },
+        {
+            nombreUsuario: "Juan Cruz",
+            textoComentario: "¡Gran calidad y facil de usar!",
+            imagenPerfil: "",
+        }, 
+        {
+            nombreUsuario: "Emilia",
+            textoComentario: "Esperaba más del producto",
+            imagenPerfil: "",
+        },
+        {
+            nombreUsuario: "Federico",
+            textoComentario: "Me trajeron un color distinto al que pedi, y encima se atrasaron con el pedido",
+            imagenPerfil: "",
+        },
+        {
+            nombreUsuario: "Samuel",
+            textoComentario: "Excelente servicio",
+            imagenPerfil: "",
+        }]
         },
         {
           id: 4,
           imagenProducto: "img-cafetera-moulinex.jpg",
           nombreProducto: "Cafetera Moulinex Dolce Gusto",
-          descripcion: "Cafetera automática para cápsulas. Prepará cappuccinos, lattes y más con solo un botón."
-        }
-      ],
-  
-    comentarios: [
-      {
-        nombreUsuario: "Pedro",
-        textoComentario: "Muy buen producto, llegó rápido.",
-        imagenPerfil: "default-image.png"
-      }
-    ]
+          descripcion: "Cafetera automática para cápsulas. Prepará cappuccinos, lattes y más con solo un botón.",
+          comentarios: [{
+                
+            nombreUsuario: "Pedro",
+            textoComentario: "Muy buen producto, llegó rápido.",
+            imagenPerfil: "",
+        },
+        {
+            nombreUsuario: "Juan Cruz",
+            textoComentario: "¡Gran calidad y facil de usar!",
+            imagenPerfil: "",
+        }, 
+        {
+            nombreUsuario: "Emilia",
+            textoComentario: "Esperaba más del producto",
+            imagenPerfil: "",
+        },
+        {
+            nombreUsuario: "Federico",
+            textoComentario: "Me trajeron un color distinto al que pedi, y encima se atrasaron con el pedido",
+            imagenPerfil: "",
+        },
+        {
+            nombreUsuario: "Samuel",
+            textoComentario: "Excelente servicio",
+            imagenPerfil: "",
+        }]
+        }],
   };
 
 

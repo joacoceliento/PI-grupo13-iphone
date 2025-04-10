@@ -3,7 +3,7 @@ var router = express.Router();
 const productController = require('../controllers/productController')
 
 // Ruta para detalle del producto
-router.get ('/', productController.product)
+router.get ('/id/:id', productController.product)
 
 // Ruta para añadir un producto
 router.get('/add', productController.productAdd)
