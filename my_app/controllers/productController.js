@@ -13,13 +13,14 @@ let productController = {
 
             if (idPedido == idProducto) {
                 obJ = {
-                    nombre: infoProducto.nombreProducto[i],
-                    descripcion: infoProducto.descripcion[i],
-                    comentarios: infoProducto.comentarios[i] 
+                    nombre: infoProducto[i].nombreProducto,
+                    descripcion: infoProducto[i].descripcion,
+                    comentarios: infoProducto[i].comentarios,
+                    imagen: infoProducto[i].imagenProducto
                 }}
         }
 
-        res.render('product', { obJ } )
+        res.render('product', { producto: obJ } )
 
     },
 
