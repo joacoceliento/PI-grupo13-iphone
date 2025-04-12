@@ -5,7 +5,7 @@
 let baseDeDatos = {
     usuario: {
       mail: "JudeMadrid@gmail.com",
-      usuario: "Jude Bellingham",
+      nombre: "Jude Bellingham",
       contraseña: "realVARdrid8279",
       fechaNacimiento: "26/09/2005",
       dni: 47987222,

@@ -1,26 +1,41 @@
-// Cosas para preguntar 
 
+
+// LISTA CON TODOS LOS PUNTOS DEL PI Y LAS COSAS QUE FALTAN TERMINAR
 /* 
-    1 - "El “nombre de usuario” deberá obtenerlo del módulo de datos."
-            A que se refiere con esto en el punto 8? de que forma debo extraer el nombre del ususario
-            LO MISMO PARA EL PUNTO 9 (ya esta hecho)
 
-    2 -  "No es necesario para esta entrega que se vean los datos del producto 
-        sobre el cual clieckeaste para llegar al detalle"
-            A q se refire esto en el punto 10?
+Punto 1 - Migración a Node y Express
 
-    3 - "Preguntar punto 10 y 11" YA HICE EL 11 TAMBIEN
+    Terminado = 1, 2, 3, 4, 5, 6, 7, 10
+    
+    FALTA terminar = 8, 9, 11
+
+
+Punto 2 - Módulo de datos
+
+    a = Los datos del usuario deben mostrarse en todos los lugares donde aparezca el header logueado y en “mi perfil”. (FALTA TERMINAR)
+
+    b = La información de los productos debe mostrarse en todos los 
+        lugares de la maqueta en donde aparezca un listado de productos por ejemplo en home y en  “mi perfil”. (FALTA TERMINAR)
+
+         Debe tener al menos 10 productos (TERMINAR EN EL DB)
+
+
+Punto 3 - Personalización del sitio
+
+    Tipografía específica, paleta de colores y nombre del sistio (FALTA TERMINAR, TODO CSS)
+
 
 */
 
 let info = require('../db/info')
 
-
 let indexController = {
     index : function (req, res) {
         let infoProducto = info.productos
-        res.render('index', { title: 'Mercado Libre Argentina' } /*{productos: infoProducto}*/); 
-      }
+
+        res.render('index', {title: "Mercado libre Argentina"});
+            
+    }
 };
 
 
