@@ -4,19 +4,19 @@
 
 let baseDeDatos = {
     usuario: {
-      mail: "pedro3000@gmail.com",
-      usuario: "Pedro Bobzin",
-      contraseña: "Pedro8279",
+      mail: "JudeMadrid@gmail.com",
+      usuario: "Jude Bellingham",
+      contraseña: "realVARdrid8279",
       fechaNacimiento: "26/09/2005",
       dni: 47987222,
-      fotoPerfil: "/images/users/default-image.png"
+      fotoPerfil: "/images/users/bellingham.jpeg"
     },
 
     productos: [
         {
             id: 1,
-            imagenProducto: "/images/products/img-cafetera-moulinex.jpg",
-            nombreProducto: "Cafetera Moulinex Dolce Gusto",
+            imagenProducto: "/images/products/Adidas Messi.jpg",
+            nombreProducto: "Adidas Messi",
             descripcion: "Cafetera automática para cápsulas. Prepará cappuccinos, lattes y más con solo un botón.",
             comentarios: [
               {

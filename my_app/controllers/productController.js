@@ -25,7 +25,8 @@ let productController = {
     },
 
     productAdd: function (req, res) {
-        res.render('productAdd')
+        let usuario = info.usuario;
+        res.render('productAdd', { usuario: usuario })
     },
 
     searchResults: function (req, res) {

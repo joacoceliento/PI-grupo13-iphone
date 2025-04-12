@@ -13,10 +13,13 @@
 
 */
 
+let info = require('../db/info')
+
 
 let indexController = {
     index : function (req, res) {
-        res.render('index', { title: 'Mercado Libre Argentina' }); 
+        let infoProducto = info.productos
+        res.render('index', { title: 'Mercado Libre Argentina' } /*{productos: infoProducto}*/); 
       }
 };
 
