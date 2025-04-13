@@ -15,7 +15,7 @@ let baseDeDatos = {
     productos: [
         {
             id: 1,
-            imagenProducto: "/images/products/Adidas Messi.jpg",
+            imagenProducto: "/images/products/Adidas_Messi.jpg",
             nombreProducto: "Adidas Messi",
             descripcion: "Cafetera automática para cápsulas. Prepará cappuccinos, lattes y más con solo un botón.",
             comentarios: [
@@ -47,9 +47,9 @@ let baseDeDatos = {
             ]},
         {
           id: 2,
-          imagenProducto: "/images/products/img-macbook-pro-2019.jpg",
-          nombreProducto: "MacBook Pro 13'' 2019",
-          descripcion: "Potente notebook con Touch Bar y pantalla Retina.",
+          imagenProducto: "/images/products/Adidas_Predator.jpeg",
+          nombreProducto: "Adidas Predator",
+          descripcion: "Gran precisión y toque para mediocampistas.",
           comentarios:[
             {
               nombreUsuario: "Pedro",
@@ -79,9 +79,9 @@ let baseDeDatos = {
           ]}, 
           {
             id: 3,
-            imagenProducto: "/images/products/img-samsung-galaxy-s10.jpg",
-            nombreProducto: "Samsung Galaxy S10",
-            descripcion: "Smartphone de alta gama con pantalla AMOLED, triple cámara y diseño elegante. Excelente experiencia Android.",
+      imagenProducto: "/images/products/Adidas_PredatorMutator.jpg",
+      nombreProducto: "Adidas Predator Mutator",
+      descripcion: "Diseño mejorado con tecnología de control.",
             comentarios:[
                 {
                   nombreUsuario: "Pedro",
@@ -111,9 +111,9 @@ let baseDeDatos = {
               ]},
           {
             id: 4,
-            imagenProducto: "/images/products/img-tv-samsung-smart.jpg",
-            nombreProducto: "Smart TV Samsung 55'' UHD",
-            descripcion: "Televisor 4K Ultra HD con colores vibrantes, sonido envolvente y acceso a plataformas de streaming.",
+            imagenProducto: "/images/products/Adidas_Speedportal.jpeg",
+            nombreProducto: "Adidas Speedportal",
+            descripcion: "Rapidez y estabilidad para jugadores explosivos.",
             comentarios:[
                 {
                   nombreUsuario: "Pedro",
@@ -141,6 +141,109 @@ let baseDeDatos = {
                   imagenPerfil: "default-image.png"
                 }
               ]},
+              {
+                id: 5,
+                imagenProducto: "/images/products/KakariRugby.jpg",
+                nombreProducto: "Kakari Rugby",
+                descripcion: "Botines resistentes para rugby, ideales para scrum.",
+                comentarios: [
+                  { nombreUsuario: "Pedro", 
+                    textoComentario: "Los mejores para el contacto en el juego.", 
+                    imagenPerfil: "default-image.png" },
+                  { nombreUsuario: "Emilia",
+                    textoComentario: "Se ajustan bien al pie, buena protección.", 
+                    imagenPerfil: "default-image.png" },
+                  { nombreUsuario: "Federico",
+                    textoComentario: "Excelente agarre en la cancha.", 
+                    imagenPerfil: "default-image.png" }
+                ]
+              },
+              {
+                id: 6,
+                imagenProducto: "/images/products/Nike_Mercurial_Vapor2.jpg",
+                nombreProducto: "Nike Mercurial Vapor 2",
+                descripcion: "Ligereza extrema para máxima velocidad.",
+                comentarios: [
+                  { nombreUsuario: "Samuel", 
+                    textoComentario: "Son super ligeros, ideales para delanteros.", 
+                    imagenPerfil: "default-image.png" },
+                  { nombreUsuario: "Pedro", 
+                    textoComentario: "Buen ajuste en el pie.", 
+                    imagenPerfil: "default-image.png" },
+                  { nombreUsuario: "Messi", 
+                    textoComentario: "Me ayudaron a mejorar mi aceleración.", 
+                    imagenPerfil: "default-image.png" }
+                ]
+              },
+              {
+                id: 7,
+                imagenProducto: "/images/products/Nike_Mercurial_Zoom_Vapor.jpeg",
+                nombreProducto: "Nike Mercurial Zoom Vapor 2",
+                descripcion: "Tecnología Zoom para respuesta rápida en el juego.",
+                comentarios: [
+                  { nombreUsuario: "Federico", 
+                    textoComentario: "Muy cómodos en el movimiento.", 
+                    imagenPerfil: "default-image.png" },
+                  { nombreUsuario: "Pedro", 
+                    textoComentario: "Mejor respuesta en cambios de velocidad.", 
+                    imagenPerfil: "default-image.png" },
+                  { nombreUsuario: "Emilia", 
+                    textoComentario: "Los colores son muy atractivos.", 
+                    imagenPerfil: "default-image.png" }
+                ]
+              },
+              {
+                id: 8,
+                imagenProducto: "/images/products/Nike_Mercurial7.jpeg",
+                nombreProducto: "Nike Mercurial 7",
+                descripcion: "Modelo clásico con ajuste mejorado.",
+                comentarios: [
+                  { nombreUsuario: "Messi", 
+                    textoComentario: "Buena estabilidad en el pie.", 
+                    imagenPerfil: "default-image.png" },
+                  { nombreUsuario: "Samuel", 
+                    textoComentario: "Excelentes para jugar rápido.", 
+                    imagenPerfil: "default-image.png" },
+                  { nombreUsuario: "Pedro", 
+                    textoComentario: "Un modelo cómodo y versátil.", 
+                    imagenPerfil: "default-image.png" }
+                ]
+              },
+              {
+                id: 9,
+                imagenProducto: "/images/products/Nike_Phantom.jpeg",
+                nombreProducto: "Nike Phantom",
+                descripcion: "Precisión y toque superior para pases y disparos.",
+                comentarios: [
+                  { nombreUsuario: "Federico", 
+                    textoComentario: "Excelente control al golpear el balón.", 
+                    imagenPerfil: "default-image.png" },
+                  { nombreUsuario: "Messi", 
+                    textoComentario: "Me ayudó en los tiros de precisión.", 
+                    imagenPerfil: "default-image.png" },
+                  { nombreUsuario: "Pedro", 
+                    textoComentario: "Los recomiendo para mediocampistas.", 
+                    imagenPerfil: "default-image.png" }
+                ]
+              },
+              {
+                id: 10,
+                imagenProducto: "/images/products/Puma_UltraPro.jpeg",
+                nombreProducto: "Puma Ultra Pro",
+                descripcion: "Diseño aerodinámico para rendimiento en velocidad.",
+                comentarios: [
+                  { nombreUsuario: "Emilia", 
+                    textoComentario: "Buena sensación en el pie.", 
+                    imagenPerfil: "default-image.png" },
+                  { nombreUsuario: "Samuel", 
+                    textoComentario: "Son ligeros, ideales para extremos rápidos.", 
+                    imagenPerfil: "default-image.png" },
+                  { nombreUsuario: "Federico", 
+                    textoComentario: "Gran tracción en movimientos bruscos.", 
+                    imagenPerfil: "default-image.png" }
+                ]
+              }
+
         // Agregá más productos (deben ser al menos 10 según la consigna)
       ]
   };

@@ -30,11 +30,13 @@ Punto 3 - Personalización del sitio
 let info = require('../db/info')
 
 let indexController = {
-    index : function (req, res) {
-        let infoProducto = info.productos
-
-        res.render('index', {title: "Mercado libre Argentina"});
-            
+    index: function (req, res) {
+        let infoProducto = info.productos; // obteng de db
+        
+        res.render('index', {
+            title: "Mercado Libre Argentina",
+            productos: infoProducto // pasamos los productos a la vista
+        });
     }
 };
 

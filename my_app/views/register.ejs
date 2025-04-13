@@ -14,35 +14,38 @@
 			</div>
 			<!-- Show the "ultimos" products -->
 			<main class="regi">
+				
 				<form action="/users/login" method="get">
 	
 					<div>
-						<label for="email">email:</label>
-						<input type="email" name="email" id="email" placeholder="escriba su email">
+						<label for="email">Email:</label>
+						<input type="email" name="email" id="email" placeholder="escriba su email" required>
 					</div>
 
 					<div>
-						<label for="nombre">usuario:</label> 
-						<input type="text" name="nombre" id="nombre" placeholder="nombre">
+						<label for="nombre">Usuario:</label> 
+						<input type="text" name="nombre" id="nombre" placeholder="nombre" required>
 					</div>
 
 					<div>
-					<label for="contrasennia">password</label>
-					<input type="password" name="contrasennia" id="contrasennia" placeholder="contraseña">
+					<label for="contrasennia">Contraseña:</label>
+					<input type="password" name="contrasennia" id="contrasennia" placeholder="contraseña" required>
 					</div>
 
 					<div>
 						<label for="fecha"> Fecha de nacimiento:</label>
-						<input type="date" name="fecha" id="fecha" placeholder="00/00/0000">
+						<input type="date" name="fecha" id="fecha" placeholder="00/00/0000" required>
 					</div>
 					
 					<div>
-						<label for="dni">Ingrese su número de documento</label>
-						<input type="number" name="dni" id="dni" placeholder="0000-0000">
+						<label for="dni">DNI:</label>
+
+						<input type="number" name="dni" id="dni" placeholder="0000-0000" required>
 					</div>
 
 					<div>
-						<label for="foto">foto de perfil:</label> 
+						<label for="foto">Foto de perfil: (URL)</label> 
+
 						<input type="text" name="foto" id="foto" placeholder="foto de perfil">
 					</div>
 				<!-- btns-->
@@ -50,13 +53,6 @@
 					</form>
 	
 			</main>
-
-			<h2 class="col-12"> <i>///////////////////////////////////////// <br> Acá va el formulario de registro. <br>
-			Debe cumplir con los puntos de la consigna y ser coherente con la tabla de la base de datos <br>
-			Eliminen estás líneas y coloquen el formulario. <br>
-			Recuerden todo lo que necesita tanto la etiqueta form como los campos input para operar correctamtente</i> <br>
-			////////////////
-			</h2>
 		</div>
     <%- include('partials/footer') %>
 
