@@ -7,7 +7,8 @@ FALTA:
 
     - Acomodar el header para que esten todos iguales con los cambios del tamaño del logo
     - Pregunta de resultados busqueda
-    - MySQL 
+    - MySQL HACER TODO CON GUION BAJO, SACAR ALTER TABLES (CONTRASENIA)
+
 
 
 */

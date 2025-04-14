@@ -110,6 +110,7 @@ p{
   position: relative;
   display: flex;
   align-items: center;
+  margin-block-end: 0;
 }
 
 .search-form_input {
@@ -187,8 +188,8 @@ p{
 
 .nuestroLogo {
   border-radius: 50%;
-  width: 110;
-  height: 110;
+  width: 110px;
+  height: 110px;
 }
 
 /*====== Products ======*/
