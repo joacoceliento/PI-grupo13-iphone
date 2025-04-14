@@ -6,10 +6,8 @@
 FALTA:
 
     - Acomodar el header para que esten todos iguales con los cambios del tamaño del logo
-    - Cambiar la tipografía del productos en el index, cuando te pones por encima de un botín
-    - encontrar algún fondo bueno para el body
-    - El cerrar sesión en el header logueado, A DONDE NOS TIENE QUE LLEVAR, QUE URL?
-    - REVISAR QUE MÁS FALTA
+    - Pregunta de resultados busqueda
+    - MySQL 
 
 
 */

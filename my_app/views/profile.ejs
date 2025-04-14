@@ -16,17 +16,20 @@
 			</div>
 			<div class="data-container col-6">
 				<div class="d-flex align-items-center ">
+					
 					<h1 class="main-title"> <%= usuario.usuario %>
-						<a href="/profile">
+						<h1><strong> <%= usuario.nombre %> </strong></h1>
+						<a href="/users">
 							<i class="fas fa-cog"></i>
 						</a>
 					</h1>
 				
-					<p><strong> <%= usuario.mail %> </strong></p>
+					
 					<a class="btn mt-3 ml-4" href="">SEGUIR</a>
 				</div>
 				<div>
 					<ul class="">
+						<li><%= usuario.mail %></li>
 						<li>8 productos</li>
 						<li>200 seguidores</li>
 						<li>300 comentarios</li>
