@@ -17,31 +17,23 @@
                     <form action="/" method="get"> <!-- Falta poner a donde va todo el cuestionario -->
         
                         <div>
-                            <label for="imagen">imagen:</label>
+                            <label for="imagen">Imagen:</label>
                             <input type="file" name="imagen" id="imagen" placeholder="">
                         </div>
 						<div>
 							<label for="nombreProducto">Nombre del producto:</label> 
-							<input type="text" name="nombreProducto" id="nombreProducto" placeholder="Nombre del producto">
+							<input type="text" name="nombreProducto" id="nombreProducto" placeholder="Escriba el nombre del producto">
 						</div>
 
 						<div>
 							<label for="descripcion">Descripción:</label> 
-							<input type="text" name="descripcion" id="descripcion" placeholder="describa el producto">
+							<input type="text" name="descripcion" id="descripcion" placeholder="Escriba una descripción para el producto">
 						</div>
                     <!-- btns-->
                     <button type="submit"> enviar </button>
                         </form>
         
                 </main>
-
-				<!-- Show the "ultimos" products -->
-				<h2 class="col-12"> <i>///////////////////////////////////////// <br> Acá va el formulario para agregar prodcutos al catálogo. <br>
-				Debe cumplir con los puntos de la consigna y ser coherente con la tabla de la base de datos. <br>
-				Eliminen estás líneas y coloquen el formulario. <br>
-				Recuerden todo lo que necesita tanto la etiqueta form como los campos input para operar correctamtente</i> <br>
-				////////////////
-				</h2>
 		
 		<%- include('partials/footer') %>
 	</body>

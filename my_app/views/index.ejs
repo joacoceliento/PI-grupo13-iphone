@@ -8,33 +8,39 @@
 
       <!-- Banner -->
       <div class="banner">
-        <img src="/images/Bannernuevo.jpeg" alt="Banner de ofertas">
-      </div>
+        <img src="/images/bannerNuevo3.jpg" alt="Banner de ofertas">
+      </div> 
       <!-- /Banner -->
     
       <!-- Novedades -->
       <div class="container products-wrapper">
         <div class="row">
           <div class="col-12">
-            <h2 class="products-title">Productos</h2>
+            <h2 class="products-title">Productos en la tienda</h2>
           </div>
           <!-- Show the "ultimos" products -->
-          <% productos.forEach(producto => { %>
-            <div class="col-12 col-sm-6 col-lg-3">
-              <section class="product-box">
-                <a href="/product/<%= producto.id %>">
-                  <figure class="product-box_image">
-                    <img src="<%= producto.imagenProducto %>" alt="<%= producto.nombreProducto %>">
-                  </figure>
-                  <article class="product-box_data">
-                    <h2><%= producto.nombreProducto %></h2>
-                    <p><%= producto.descripcion %></p>
-                    <p>Comentarios: <%= producto.comentarios.length %></p>
-                  </article>
-                </a>
-              </section>
-            </div>
-            <% }); %>
+
+          
+            <% for (let i = 0; i < productos.length; i++) { %>
+              
+              <% let botin = productos[i]; %>
+
+              <div class="col-12 col-sm-6 col-lg-3">
+                <section class="product-box">
+                  <a href="/product/id/<%= botin.id %>"> 
+                    <figure class="product-box_image">
+                      <img src="<%= botin.imagenProducto %>" alt="<%= botin.nombreProducto %>">
+                    </figure>
+                    <article class="product-box_data">
+                      <h2><%= botin.nombreProducto %></h2>
+                      <p><%= botin.descripcion %></p>
+                      <p>Comentarios: <%= botin.comentarios.length %></p>
+                    </article>
+                  </a>
+                </section>
+              </div>
+
+            <% } %> 
           </div>
         </div>
 

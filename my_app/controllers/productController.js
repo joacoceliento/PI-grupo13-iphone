@@ -6,7 +6,7 @@ let productController = {
         let idPedido= req.params.id;
         let infoProducto = info.productos
         let obJ = false // Esto nos sirve para cuando tengamos que hacer el return
-                        // 
+                        
 
         for (let i = 0; i < infoProducto.length; i++) {
             const idProducto = infoProducto[i].id;

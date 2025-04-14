@@ -10,7 +10,7 @@ CREATE TABLE user (
  fotoURL VARCHAR(500)
  );
  
- ALTER TABLE user
+ALTER TABLE user
 ADD COLUMN createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 ADD COLUMN updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 ADD COLUMN deletedAt TIMESTAMP NULL ON UPDATE CURRENT_TIMESTAMP;
@@ -35,6 +35,19 @@ CREATE TABLE productos (
 ALTER TABLE productos 
 MODIFY COLUMN descripcion VARCHAR(500); -- practico modificar columnas
 
+-- Tabla de comentarios
+CREATE TABLE comentarios (
+	id INT UNSIGNED PRIMARY KEY auto_increment,
+	producto_id INT UNSIGNED NOT NULL,
+    user_id INT UNSIGNED NOT NULL,
+    descripcion VARCHAR(1000),
+    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    deletedAt TIMESTAMP NULL ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES user(id), -- id del usuario que sube productos
+    FOREIGN KEY (producto_id) REFERENCES productos(id)-- id del usuario que sube productos
+);
+
 -- ahora insertamos los registros de usuarios manuelamente:
 INSERT INTO user (nombre, mail, DNI, fecha_nacimiento, fotoURL, createdAt, updatedAt, deletedAt, contraseña) VALUES
 ('Jude Bellingham', 'JudeMadrid@gmail.com', 47987222, '2005-09-26', '/images/users/bellingham.jpeg', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, 'realVARdrid8279'),
@@ -55,3 +68,43 @@ INSERT INTO productos (user_id, imagen, nombre_producto, descripcion, createdAt,
 (3, '/images/products/Nike_Mercurial7.jpeg', 'Nike Mercurial 7', 'Modelo clásico con ajuste mejorado.', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL),
 (4, '/images/products/Nike_Phantom.jpeg', 'Nike Phantom', 'Precisión y toque superior para pases y disparos.', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL),
 (5, '/images/products/Puma_UltraPro.jpeg', 'Puma Ultra Pro', 'Diseño aerodinámico para rendimiento en velocidad.', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL);
+
+INSERT INTO comentarios (producto_id, user_id, descripcion, createdAt, updatedAt, deletedAt) VALUES
+(1, 1,  'Muy buen producto, llegó rápido.', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL),
+(1, 2,  'La calidad del botin es espectacular, muy recomendado', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL),
+(1, 3,  'Muy cómodos, apto para entrenar todos los dias', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL),
+(2, 3,  'Muy buen producto, llegó rápido.', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL),
+(2, 4,  'La calidad del botin es espectacular, muy recomendado', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL),
+(2, 5,  'Muy cómodos, apto para entrenar todos los dias', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL),
+(3, 1,  'Muy buen producto, llegó rápido.', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL),
+(3, 2,  'La calidad del botin es espectacular, muy recomendado', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL),
+(3, 3,  'Muy cómodos, apto para entrenar todos los dias', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL),
+(4, 1,  'Muy buen producto, llegó rápido.', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL),
+(4, 2,  'La calidad del botin es espectacular, muy recomendado', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL),
+(4, 3,  'Muy cómodos, apto para entrenar todos los dias', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL),
+(5, 3,  'Muy buen producto, llegó rápido.', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL),
+(5, 4,  'La calidad del botin es espectacular, muy recomendado', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL),
+(5, 5,  'Muy cómodos, apto para entrenar todos los dias', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL),
+(6, 1,  'Muy buen producto, llegó rápido.', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL),
+(6, 2,  'La calidad del botin es espectacular, muy recomendado', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL),
+(6, 3,  'Muy cómodos, apto para entrenar todos los dias', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL),
+(7, 3,  'Muy buen producto, llegó rápido.', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL),
+(7, 4,  'La calidad del botin es espectacular, muy recomendado', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL),
+(7, 5,  'Muy cómodos, apto para entrenar todos los dias', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL),
+(8, 1,  'Muy buen producto, llegó rápido.', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL),
+(8, 2,  'La calidad del botin es espectacular, muy recomendado', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL),
+(8, 3,  'Muy cómodos, apto para entrenar todos los dias', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL),
+(9, 3,  'Muy buen producto, llegó rápido.', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL),
+(9, 4,  'La calidad del botin es espectacular, muy recomendado', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL),
+(9, 5,  'Muy cómodos, apto para entrenar todos los dias', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL),
+(10, 1,  'Muy buen producto, llegó rápido.', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL),
+(10, 2,  'La calidad del botin es espectacular, muy recomendado', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL),
+(10, 3,  'Muy cómodos, apto para entrenar todos los dias', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL);
+
+
+
+
+
+
+
+
