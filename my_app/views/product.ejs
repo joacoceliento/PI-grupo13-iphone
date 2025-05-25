@@ -7,7 +7,7 @@
     <body>
         <%- include('partials/header') %>
 
-        <!-- product detail -->
+       <!-- product detail -->
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
 			<h2 class="products-title"><%= producto.nombre %></h2> 
@@ -26,14 +26,14 @@
 				<div class="col-12 col-lg-4">
 					<section class="comments">
 
-						<% for (let i = 0; i < producto.comentarios.length; i++) { %>
+					<% for (let i = 0; i < producto.comentario.length; i++) { %>
 							
 							<article>
-								<img src="<%= producto.comentarios[i].imagenPerfil %>" alt="">
+								<img src="<%= producto.comentario[i].user.fotoURL %>" alt="">
 								<div class="data">
 									<p class="user">
-									<strong> <a href="/profile"> <%= producto.comentarios[i].nombreUsuario %></a> </strong>
-									<%= producto.comentarios[i].textoComentario %> </p>
+									<strong> <a href="/profile"> <%= producto.comentario[i].user.nombre %></a> </strong>
+									<%= producto.comentario[i].descripcion %> </p>
 								</div>
 							</article>
 							

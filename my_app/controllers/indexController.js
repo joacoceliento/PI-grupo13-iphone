@@ -1,17 +1,5 @@
-
-
-// LISTA CON TODOS LOS PUNTOS DEL PI Y LAS COSAS QUE FALTAN TERMINAR
-/* 
-
-FALTA:
-
-    - Acomodar el header para que esten todos iguales con los cambios del tamaño del logo
-    - Pregunta de resultados busqueda
-    - MySQL HACER TODO CON GUION BAJO, SACAR ALTER TABLES (CONTRASENIA)
-
-
-
-*/
+const db = require('../database/models');
+const index = db.index;
 
 let info = require('../db/info')
 
