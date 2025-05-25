@@ -22,10 +22,6 @@ module.exports  = function (sequelize, dataTypes) {
             type: dataTypes.DATE,
             // preguntar por NOT NULL
         },
-        fotoURL: {
-            type: dataTypes.STRING(500),
-            field: 'fotoURL'
-        },
         createdAt : {
             type: dataTypes.DATE,
         },
@@ -35,7 +31,7 @@ module.exports  = function (sequelize, dataTypes) {
         deletedAt:{
             type: dataTypes.DATE,
         },
-        contraseña: {
+        contrasenia: {
             type: dataTypes.STRING(500),
         },
     }
@@ -43,7 +39,7 @@ module.exports  = function (sequelize, dataTypes) {
     let config = {
         tableName: "user",
         timestamps: false,
-        //underscored: true
+        underscored: true
     }
 
     let User = sequelize.define('User', cols, config);

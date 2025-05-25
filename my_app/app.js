@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+const session = require('express-session'); 
 var indexRouter = require('./routes/index');
 var productRouter = require('./routes/product');
 var usersRouter = require('./routes/users');
@@ -19,6 +20,19 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// configuro session
+app.use(session({ secret: "nuestro mensaje secreto",
+  resave: false,
+  saveUninitialized: true}));
+
+// Middleware para guardar el usuario logueado en res.locals
+app.use(function(req, res, next) {
+  if (req.session.usurarioLogueado !== undefined) {
+    res.locals.user = req.session.usurarioLogueado; // Guardar el usuario en res.locals
+  } 
+  return next();
+});
 
 app.use('/index', indexRouter);
 app.use('/product', productRouter);
