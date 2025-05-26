@@ -17,9 +17,10 @@ let usersController = {
     },
 
     login: function (req, res) {
-        if (req.method === "GET") {
-            return res.render('login');
-        }
+        res.render('login');
+    },
+
+    createlogin: function (req, res) {
 
         let email = req.body.email;
         let contrasenia = req.body.contrasenia;
@@ -36,9 +37,11 @@ let usersController = {
                     return res.send("El email no está registrado.");
                 }
 
+                let check = bcrypt.compareSync(contrasenia, usuario.contrasenia)
+
                 // Comparar contraseña encriptada
-                if (!bcrypt.compareSync(contrasenia, usuario.contrasenia)) {
-                    return res.send("La contraseña es incorrecta.");
+                if ( check == false) {
+                    return res.send( "La contraseña es incorrecta.");
                 }
 
                 // Si todo está bien, redirigir al perfil 
@@ -88,8 +91,7 @@ let usersController = {
             })
             .then(function(nuevoUsuario) {
                 if (nuevoUsuario) {
-                    console.log('Usuario creado:', nuevoUsuario);
-                    res.redirect('/login');
+                    res.redirect('/users/login');
                 }
             })
             .catch(function(error) {
