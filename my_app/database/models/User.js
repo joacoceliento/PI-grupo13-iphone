@@ -22,6 +22,9 @@ module.exports  = function (sequelize, dataTypes) {
             type: dataTypes.DATE,
             // preguntar por NOT NULL
         },
+        foto_url: {
+            type: dataTypes.STRING(500),
+        },
         createdAt : {
             type: dataTypes.DATE,
         },

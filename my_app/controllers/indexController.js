@@ -4,12 +4,21 @@ const index = db.index;
 let info = require('../db/info')
 
 let indexController = {
+
     index: function (req, res) {
-        let infoProducto = info.productos; // obteng de db
+        db.Product.findAll({
+            include: [{association: "user"},
+                    {association: "comentario"}]
+        })
+        .then(function (resultados) {
+            res.render('index', {productos: resultados})
+        })
+    
+        /*let infoProducto = info.productos; // obteng de db
         
         res.render('index', { 
             productos: infoProducto // pasamos los productos a la vista
-        });
+        });*/
     }
 };
 

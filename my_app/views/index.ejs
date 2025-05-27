@@ -29,12 +29,12 @@
                 <section class="product-box">
                   <a href="/product/id/<%= botin.id %>"> 
                     <figure class="product-box_image">
-                      <img src="<%= botin.imagenProducto %>" alt="<%= botin.nombreProducto %>">
+                      <img src="<%= botin.imagen %>" alt="<%= botin.nombre_producto %>">
                     </figure>
                     <article class="product-box_data">
-                      <h2><%= botin.nombreProducto %></h2>
+                      <h2><%= botin.nombre_producto %></h2>
                       <p><%= botin.descripcion %></p>
-                      <p>Comentarios: <%= botin.comentarios.length %></p>
+                      <p>Comentarios: <%= botin.comentario.length %></p>
                     </article>
                   </a>
                 </section>

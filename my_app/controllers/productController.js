@@ -55,15 +55,23 @@ let productController = {
    
 
     productAdd: function (req, res) {
-        let usuario = info.usuario;
-        res.render('productAdd', { usuario: usuario })
+        db.Product.findAll({
+            
+            include: [
+                {association: "user"},
+                {association: "comentario",
+                    include: [ {association: "user"} ]}] 
+        })
+        .then(function (usuario) {
+            res.render('productADD', {usuario: usuario})
+        })
     },
 
     searchResults: function (req, res) {
         let productos = info.productos;
         res.render('searchResults', { productos: productos })
     }
-    
+
 }
 
 module.exports = productController
