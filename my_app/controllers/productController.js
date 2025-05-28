@@ -1,5 +1,5 @@
 const db = require('../database/models'); // para requerir la base de datos de sql
-
+const op = db.Sequelize.Op; 
 
 const info = require('../db/info');
 
@@ -51,25 +51,65 @@ let productController = {
         }
 
         res.render('product', { producto: obJ } )*/
-
-   
-
-    productAdd: function (req, res) {
+    AddGET: function (req, res) {
         db.Product.findAll({
-            
             include: [
                 {association: "user"},
                 {association: "comentario",
-                    include: [ {association: "user"} ]}] 
+                    include: [{association: "user"}]}
+            ],
         })
         .then(function (usuario) {
-            res.render('productADD', {usuario: usuario})
+            res.render('productAdd', { usuario: usuario })
         })
     },
 
+    productAdd: function (req, res) {
+
+        let productoNuevo = {
+            
+            imagen: req.body.imagen,
+            nombre: req.body.nombreProducto,
+            descripcion: req.body.descripcion
+
+        }
+        db.Product.create({
+            imagen: productoNuevo.imagen,
+            nombre_producto: productoNuevo.nombre,
+            descripcion: productoNuevo.descripcion,
+            user_id: 1,
+        })
+        .then(function (producto) {
+            return res.redirect('/index')
+        })
+        .catch(function (error) {
+            console.error("Error al crear producto:", error);
+            res.status(500).send("Error al crear producto");
+        });
+    },
+
+
     searchResults: function (req, res) {
-        let productos = info.productos;
-        res.render('searchResults', { productos: productos })
+        
+        let search = req.query.search; 
+
+        db.Product.findAll({
+            include: [
+                {association: "user"},
+                {association: "comentario",
+                    include: [{association: "user"}]}
+            ],
+            where: [{ nombre_producto: { [op.like]: `%${search}%` }}]
+        })
+        .then(function (resultados) {
+            if (resultados.length > 0){
+                res.render('searchResults', { productos: resultados })
+            }
+            else{
+                res.send('No hay resultados para su criterio de búsqueda')
+            }
+        })
+        /*let productos = info.productos;*/
     }
 
 }

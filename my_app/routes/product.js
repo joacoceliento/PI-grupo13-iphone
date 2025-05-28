@@ -6,7 +6,9 @@ const productController = require('../controllers/productController')
 router.get ('/id/:id', productController.product)
 
 // Ruta para añadir un producto
-router.get('/add', productController.productAdd)
+router.get('/add', productController.AddGET)
+router.post('/add', productController.productAdd)
+
 
 // Ruta para buscar producto
 router.get('/searchResults', productController.searchResults)
