@@ -28,8 +28,8 @@ app.use(session({ secret: "nuestro mensaje secreto",
 
 // Middleware para guardar el usuario logueado en res.locals
 app.use(function(req, res, next) {
-  if (req.session.usurarioLogueado !== undefined) {
-    res.locals.user = req.session.usurarioLogueado; // Guardar el usuario en res.locals
+  if (req.session.usuarioLogueado !== undefined) {
+    res.locals.user = req.session.usuarioLogueado; // Guardar el usuario en res.locals
   } 
   return next();
 });

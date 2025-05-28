@@ -3,13 +3,31 @@ const db = require('../database/models');
 const bcrypt = require('bcryptjs');
 
 let usersController = {
-    perfil: function (req, res) {
-        // elegimos al primer usuario como ejemplo de obtener de base de datos
-        let usuario = info.usuario;
-        let infoProducto = info.productos;
 
-        res.render('profile', { usuario: usuario,
-                                productos: infoProducto });
+    perfilID: function (req, res) {
+        // obtenemos el id del usuario de la url
+        let idUsuario = req.params.id;
+
+        db.User.findByPk(idUsuario, {
+            include: [
+                { association: "product" },
+                { association: "comentario" }
+            ]}
+        )
+        .then(function(usuario) {
+            if (usuario == undefined || usuario == "") {
+                return res.send('Usuario no encontrado.');
+            }
+            res.render('profile', { 
+                usuario: usuario,
+                productos: usuario.product, 
+                comentarios: usuario.comentario 
+            }); 
+        })
+        .catch(function(error) {
+            console.log('Error al obtener usuario:', error);
+            res.send('Ocurrió un error al cargar el perfil.');
+        });
     },
 
     register: function (req, res) {
@@ -43,7 +61,7 @@ let usersController = {
                 if ( check == false) {
                     return res.send( "La contraseña es incorrecta.");
                 }
-
+                req.session.usuarioLogueado = usuario;
                 // Si todo está bien, redirigir al perfil 
                 res.redirect('/users');
             })
@@ -98,6 +116,47 @@ let usersController = {
                 console.log('Error al crear usuario:', error);
                 res.send('Ocurrió un error al registrar el usuario.');
             });
+    }, 
+    perfil: function (req, res) {
+        // elegimos al primer usuario como ejemplo de obtener de base de datos
+       /* let usuario = info.usuario;
+        let infoProducto = info.productos;
+        res.render('profile', {
+            usuario: usuario,
+            productos: infoProducto,
+            comentarios: info.comentarios
+        });*/
+        if (req.session.usuarioLogueado == undefined || req.session.usuarioLogueado == "") {
+        return res.redirect('/users/login'); // o muestra un mensaje de error
+    }
+        // obtenemos el id del usuario logueado
+        let idUsuario = req.session.usuarioLogueado.id;
+        // buscamos el usuario en la base de datos
+        db.User.findByPk(idUsuario, {
+            include: [
+                { association: "product" },
+                { association: "comentario" }
+            ]}
+        )
+        .then(function(usuario) {
+            if (usuario == undefined || usuario == "") {
+                return res.send('Usuario no encontrado.');
+            }
+            res.render('profile', { 
+                usuario: usuario,
+                productos: usuario.product, 
+                comentarios: usuario.comentario 
+            }); 
+        })
+        .catch(function(error) {
+            res.send('Ocurrió un error al cargar el perfil.');
+        });
+    },
+    logout: function (req, res) {
+        // cerramos sesión 
+        req.session.destroy( function (){
+            res.redirect('/users/login'); // redirigimos al login
+        });
     }
 };
 

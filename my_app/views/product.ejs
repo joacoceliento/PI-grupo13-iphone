@@ -32,7 +32,7 @@
 								<img src="<%= producto.comentario[i].user.foto_url %>" alt="">
 								<div class="data">
 									<p class="user">
-									<strong> <a href="/profile"> <%= producto.comentario[i].user.nombre %></a> </strong>
+									<strong> <a href="/users/<%= producto.comentario[i].user.id %>"><%= producto.comentario[i].user.nombre %></a> </strong>
 									<%= producto.comentario[i].descripcion %> </p>
 								</div>
 							</article>
