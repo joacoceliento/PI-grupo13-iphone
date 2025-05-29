@@ -24,15 +24,21 @@ app.use(express.static(path.join(__dirname, 'public')));
 // configuro session
 app.use(session({ secret: "nuestro mensaje secreto",
   resave: false,
-  saveUninitialized: true}));
+  saveUninitialized: true,
+  cookie: { maxAge: 1000 * 60 * 10 } // 10 minutos
+  }));
 
 // Middleware para guardar el usuario logueado en res.locals
 app.use(function(req, res, next) {
   if (req.session.usuarioLogueado !== undefined) {
-    res.locals.user = req.session.usuarioLogueado; // Guardar el usuario en res.locals
-  } 
+    res.locals.user = req.session.usuarioLogueado;
+    res.locals.usuario = req.session.usuarioLogueado;
+  } else {
+    res.locals.user = null;
+  }
   return next();
 });
+
 
 app.use('/index', indexRouter);
 app.use('/product', productRouter);

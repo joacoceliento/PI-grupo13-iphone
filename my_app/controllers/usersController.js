@@ -4,37 +4,21 @@ const bcrypt = require('bcryptjs');
 
 let usersController = {
 
-    perfilID: function (req, res) {
-        // obtenemos el id del usuario de la url
-        let idUsuario = req.params.id;
-
-        db.User.findByPk(idUsuario, {
-            include: [
-                { association: "product" },
-                { association: "comentario" }
-            ]}
-        )
-        .then(function(usuario) {
-            if (usuario == undefined || usuario == "") {
-                return res.send('Usuario no encontrado.');
-            }
-            res.render('profile', { 
-                usuario: usuario,
-                productos: usuario.product, 
-                comentarios: usuario.comentario 
-            }); 
-        })
-        .catch(function(error) {
-            console.log('Error al obtener usuario:', error);
-            res.send('Ocurrió un error al cargar el perfil.');
-        });
-    },
-
     register: function (req, res) {
+        if (req.session.usuarioLogueado) {
+            // Si el usuario ya está logueado, redirigir al perfil
+            return res.redirect('/users');
+        }
+        // Si no está logueadomostrar la página de registro
         res.render('register');
     },
 
     login: function (req, res) {
+        if (req.session.usuarioLogueado) {
+            // Si el usuario ya está logueado, redirigir al perfil
+            return res.redirect('/users');
+            
+        }
         res.render('login');
     },
 
@@ -143,6 +127,33 @@ let usersController = {
                 return res.send('Usuario no encontrado.');
             }
             res.render('profile', { 
+                usuario: usuario,
+                productos: usuario.product, 
+                comentarios: usuario.comentario 
+            }); 
+        })
+        .catch(function(error) {
+            res.send('Ocurrió un error al cargar el perfil.');
+        });
+    },
+ 
+    perfilID: function (req, res) {
+        // obtenemos el id del usuario de la url
+        let idUsuario = req.params.id;
+
+        db.User.findByPk(idUsuario, {
+            include: [
+            {
+                association: "product",
+                include: [{ association: "comentario" }]
+            }
+        ]
+    })
+        .then(function(usuario) {
+            if (usuario == undefined || usuario == "") {
+                return res.send('Usuario no encontrado.');
+            }
+            res.render('userProfile', { 
                 usuario: usuario,
                 productos: usuario.product, 
                 comentarios: usuario.comentario 

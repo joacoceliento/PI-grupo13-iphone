@@ -1,52 +1,55 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="es">
   <%- include('partials/head') %>
-    
-  <body>
+    <body>
      
+    <% if (locals.user != undefined) { %>
+      <%- include('partials/header-logueado') %>
+    <% } else { %>
       <%- include('partials/header') %>
+    <% } %>
 
-      <!-- Banner -->
-      <div class="banner">
-        <img src="/images/bannerNuevo3.jpg" alt="Banner de ofertas">
-      </div> 
-      <!-- /Banner -->
-    
-      <!-- Novedades -->
-      <div class="container products-wrapper">
-        <div class="row">
-          <div class="col-12">
-            <h2 class="products-title">Productos en la tienda</h2>
-          </div>
-          <!-- Show the "ultimos" products -->
-
-          
-            <% for (let i = 0; i < productos.length; i++) { %>
-              
-              <% let botin = productos[i]; %>
-
-              <div class="col-12 col-sm-6 col-lg-3">
-                <section class="product-box">
-                  <a href="/product/id/<%= botin.id %>"> 
-                    <figure class="product-box_image">
-                      <img src="<%= botin.imagen %>" alt="<%= botin.nombre_producto %>">
-                    </figure>
-                    <article class="product-box_data">
-                      <h2><%= botin.nombre_producto %></h2>
-                      <p><%= botin.descripcion %></p>
-                      <p>Comentarios: <%= botin.comentario.length %></p>
-                      <a href="/users/<%= botin.user.id %>"> <%= botin.user.nombre %></a>
-                    </article>
-                  </a>
-                </section>
-              </div>
-
-            <% } %> 
-          </div>
-        </div>
-
-      	<!-- footer -->
-      <%- include('partials/footer') %>
+        <!-- Banner -->
+        <div class="banner">
+          <img src="/images/bannerNuevo3.jpg" alt="Banner de ofertas">
+        </div> 
+        <!-- /Banner -->
       
+        <!-- Novedades -->
+        <div class="container products-wrapper">
+          <div class="row">
+            <div class="col-12">
+              <h2 class="products-title">Productos en la tienda</h2>
+            </div>
+            <!-- Show the "ultimos" products -->
+
+            
+              <% for (let i = 0; i < productos.length; i++) { %>
+                
+                <% let botin = productos[i]; %>
+
+                <div class="col-12 col-sm-6 col-lg-3">
+                  <section class="product-box">
+                    <a href="/product/id/<%= botin.id %>"> 
+                      <figure class="product-box_image">
+                        <img src="<%= botin.imagen %>" alt="<%= botin.nombre_producto %>">
+                      </figure>
+                      <article class="product-box_data">
+                        <h2><%= botin.nombre_producto %></h2>
+                        <p><%= botin.descripcion %></p>
+                        <p>Comentarios: <%= botin.comentario.length %></p>
+                        <a href="/users/id/<%= botin.user.id %>"> <%= botin.user.nombre %></a>
+                      </article>
+                    </a>
+                  </section>
+                </div>
+
+              <% } %> 
+            </div>
+          </div>
+
+          <!-- footer -->
+        <%- include('partials/footer') %>
+        
     </body>	
 </html>
