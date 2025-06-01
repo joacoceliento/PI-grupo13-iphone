@@ -35,7 +35,7 @@
                       <h2><%= botin.nombre_producto %></h2>
                       <p><%= botin.descripcion %></p>
                       <p>Comentarios: <%= botin.comentario.length %></p>
-                      <a href="/users"> <%= botin.user.nombre %></a>
+                      <a href="/users/id/<%= botin.user.id %>"> <%= botin.user.nombre %></a>
                     </article>
                   </a>
                 </section>
