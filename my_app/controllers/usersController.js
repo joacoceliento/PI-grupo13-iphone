@@ -102,14 +102,7 @@ let usersController = {
             });
     }, 
     perfil: function (req, res) {
-        // elegimos al primer usuario como ejemplo de obtener de base de datos
-       /* let usuario = info.usuario;
-        let infoProducto = info.productos;
-        res.render('profile', {
-            usuario: usuario,
-            productos: infoProducto,
-            comentarios: info.comentarios
-        });*/
+    
         if (req.session.usuarioLogueado == undefined || req.session.usuarioLogueado == "") {
         return res.redirect('/users/login'); // o muestra un mensaje de error
     }
@@ -118,10 +111,12 @@ let usersController = {
         // buscamos el usuario en la base de datos
         db.User.findByPk(idUsuario, {
             include: [
-                { association: "product" },
-                { association: "comentario" }
-            ]}
-        )
+            {
+                association: "product",
+                include: [{ association: "comentario" }]
+            }
+        ]
+        })
         .then(function(usuario) {
             if (usuario == undefined || usuario == "") {
                 return res.send('Usuario no encontrado.');
@@ -133,13 +128,14 @@ let usersController = {
             }); 
         })
         .catch(function(error) {
-            res.send('Ocurrió un error al cargar el perfil.');
+            res.send('Ocurrió un error al cargar el perfil.', error);
         });
     },
  
     perfilID: function (req, res) {
         // obtenemos el id del usuario de la url
         let idUsuario = req.params.id;
+        //let idUsuarioLogueado = req.session.usuarioLogueado.id;
 
         db.User.findByPk(idUsuario, {
             include: [
@@ -148,12 +144,12 @@ let usersController = {
                 include: [{ association: "comentario" }]
             }
         ]
-    })
+        })
         .then(function(usuario) {
             if (usuario == undefined || usuario == "") {
                 return res.send('Usuario no encontrado.');
             }
-            res.render('userProfile', { 
+            res.render('userProfile', {
                 usuario: usuario,
                 productos: usuario.product, 
                 comentarios: usuario.comentario 
@@ -163,6 +159,7 @@ let usersController = {
             res.send('Ocurrió un error al cargar el perfil.');
         });
     },
+
     logout: function (req, res) {
         // cerramos sesión 
         req.session.destroy( function (){

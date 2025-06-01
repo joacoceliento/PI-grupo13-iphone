@@ -14,11 +14,6 @@ let indexController = {
             res.render('index', {productos: resultados})
         })
     
-        /*let infoProducto = info.productos; // obteng de db
-        
-        res.render('index', { 
-            productos: infoProducto // pasamos los productos a la vista
-        });*/
     }
 };
 

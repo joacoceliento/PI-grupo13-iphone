@@ -31,26 +31,27 @@ let productController = {
             res.send("Error al cargar productos.");
         })
     },
+
+    comentarioAdd: function (req, res) {
+
+        let comentarioNuevo = req.body.comentarioNUEVO;
+        let idProducto = req.params.id; 
+
+        db.Comentario.create({
+            user_id: req.session.usuarioLogueado.id,
+            producto_id: idProducto,
+            descripcion: comentarioNuevo
+        })
+        .then(function (comentario) {
+            return res.redirect(`/product/id/${idProducto}`)
+        })
+        .catch(function (error) {
+            console.error("Error al crear producto:", error);
+            res.status(500).send("Error al crear producto");
+        });
         
-
-        /*let idPedido= req.params.id;
-        let infoProducto = info.productos
-        let obJ = false // Esto nos sirve para cuando tengamos que hacer el return
-                        
-
-        for (let i = 0; i < infoProducto.length; i++) {
-            const idProducto = infoProducto[i].id;
-
-            if (idPedido == idProducto) {
-                obJ = {
-                    nombre: infoProducto[i].nombreProducto,
-                    descripcion: infoProducto[i].descripcion,
-                    comentarios: infoProducto[i].comentarios,
-                    imagen: infoProducto[i].imagenProducto
-                }}
-        }
-
-        res.render('product', { producto: obJ } )*/
+    },
+     
     AddGET: function (req, res) {
         db.Product.findAll({
             include: [
@@ -65,21 +66,23 @@ let productController = {
     },
 
     productAdd: function (req, res) {
-
+        console.log("req.body:", req.body);
+        console.log("req.session.usuarioLogueado:", req.session.usuarioLogueado);
+ 
         let productoNuevo = {
-            
+           
             imagen: req.body.imagen,
             nombre: req.body.nombreProducto,
             descripcion: req.body.descripcion
-
+ 
         }
         db.Product.create({
             imagen: productoNuevo.imagen,
             nombre_producto: productoNuevo.nombre,
             descripcion: productoNuevo.descripcion,
-            user_id: 1,
+            user_id: req.session.usuarioLogueado.id,
         })
-        .then(function (producto) {
+        .then(function (productos) {
             return res.redirect('/index')
         })
         .catch(function (error) {
@@ -87,7 +90,6 @@ let productController = {
             res.status(500).send("Error al crear producto");
         });
     },
-
 
     searchResults: function (req, res) {
         
@@ -110,7 +112,7 @@ let productController = {
             }
         })
         /*let productos = info.productos;*/
-    }
+    },
 
 }
 

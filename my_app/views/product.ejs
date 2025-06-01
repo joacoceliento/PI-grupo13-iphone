@@ -36,7 +36,7 @@
 								<img src="<%= producto.comentario[i].user.foto_url %>" alt="">
 								<div class="data">
 									<p class="user">
-									<strong> <a href="/users/<%= producto.comentario[i].user.id %>"><%= producto.comentario[i].user.nombre %></a> </strong>
+									<strong> <a href="/users/id/<%= producto.comentario[i].user.id %>"><%= producto.comentario[i].user.nombre %></a> </strong>
 									<%= producto.comentario[i].descripcion %> </p>
 								</div>
 							</article>
@@ -45,10 +45,19 @@
 						
 
 					</section>
-					<form class="form" action="" method="POST">
-						<input class="form-input" type="text" value="" placeholder="Agregar comentario">
-						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
-					</form>
+						<% if (locals.user != undefined) { %>
+							<form class="form" action= '/product/id/<%= producto.id %>' method="POST">
+								<input class="form-input" name="comentarioNUEVO" type="text" value="" placeholder="Agregar comentario">
+								<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
+							</form>	
+
+						<% } else { %>
+								<form class="form" action="/users/login" method="GET">
+									<input class="form-input" name="comentarioNUEVO" type="text" value="" placeholder="Agregar comentario">
+									<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
+								</form>
+						<% } %>
+					
 					<hr>
 				</div>
 			</div>
