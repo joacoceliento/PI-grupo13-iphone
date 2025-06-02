@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs');
 let usersController = {
 
     register: function (req, res) {
-        if (req.session.usuarioLogueado) {
+        if (req.session.user) {
             // Si el usuario ya está logueado, redirigir al perfil
             return res.redirect('/users');
         }
@@ -13,7 +13,7 @@ let usersController = {
     },
 
     login: function (req, res) {
-        if (req.session.usuarioLogueado) {
+        if (req.session.user) {
             // Si el usuario ya está logueado, redirigir al perfil
             return res.redirect('/users');
             
@@ -44,13 +44,13 @@ let usersController = {
                 if ( check == false) {
                     return res.send( "La contraseña es incorrecta.");
                 }
-                req.session.usuarioLogueado = usuario;
+                req.session.user = usuario;
                 console.log("req.body.remember", req.body.remember);
                 
                     if (req.body.remember) {
                         // Si el usuario eligió recordar su sesión guardamos en una cookie
-                        res.cookie('usuarioLogueado', usuario.id, { maxAge: 1000 * 60 * 10 }); //10 minutos
-                    }
+                        res.cookie('user', usuario, { maxAge: 1000 * 60 * 10 }); //10 minutos
+                    } 
 
                 // Si todo está bien, redirigir al perfil 
                 res.redirect('/users');
@@ -108,11 +108,11 @@ let usersController = {
     }, 
     perfil: function (req, res) {
     
-        if (req.session.usuarioLogueado == undefined || req.session.usuarioLogueado == "") {
+        if (req.session.user == undefined || req.session.user == "") {
         return res.redirect('/users/login'); // o muestra un mensaje de error
     }
         // obtenemos el id del usuario logueado
-        let idUsuario = req.session.usuarioLogueado.id;
+        let idUsuario = req.session.user.id;
         // buscamos el usuario en la base de datos
         db.User.findByPk(idUsuario, {
             include: [
@@ -166,8 +166,9 @@ let usersController = {
         });
     },
 
-    logout: function (req, res) {
-        // cerramos sesión 
+    logout: function (req, res) { 
+        res.clearCookie('user'); // borramos cookie si existe
+        // cerramos sesión
         req.session.destroy( function (){
             res.redirect('/users/login'); // redirigimos al login
         });

@@ -37,7 +37,7 @@ let productController = {
         let idProducto = req.params.id; 
 
         db.Comentario.create({
-            user_id: req.session.usuarioLogueado.id,
+            user_id: req.session.user.id,
             producto_id: idProducto,
             descripcion: comentarioNuevo
         })
@@ -65,7 +65,7 @@ let productController = {
 
     productAdd: function (req, res) {
         console.log("req.body:", req.body);
-        console.log("req.session.usuarioLogueado:", req.session.usuarioLogueado);
+        console.log("req.session.user:", req.session.user);
  
         let productoNuevo = {
            
@@ -78,7 +78,7 @@ let productController = {
             imagen: productoNuevo.imagen,
             nombre_producto: productoNuevo.nombre,
             descripcion: productoNuevo.descripcion,
-            user_id: req.session.usuarioLogueado.id,
+            user_id: req.session.user.id,
         })
         .then(function (productos) {
             return res.redirect('/')
