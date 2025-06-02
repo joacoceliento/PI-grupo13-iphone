@@ -24,8 +24,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // configuro session
 app.use(session({ secret: "nuestro mensaje secreto",
   resave: false,
-  saveUninitialized: true,
-  cookie: { maxAge: 1000 * 60 * 10 } // 10 minutos
+  saveUninitialized: true
   }));
 
 // Middleware para guardar el usuario logueado en res.locals

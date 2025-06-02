@@ -46,9 +46,15 @@ let usersController = {
                     return res.send( "La contraseña es incorrecta.");
                 }
                 req.session.usuarioLogueado = usuario;
+                    if (req.body.remember) {
+                        // Si el usuario eligió recordar su sesión guardamos en una cookie
+                        res.cookie('usuarioLogueado', usuario.id, { maxAge: 1000 * 60 * 10 }); //10 minutos
+                        
+                    }
                 // Si todo está bien, redirigir al perfil 
                 res.redirect('/users');
             })
+            
             .catch(function(error) {
                 console.log('Error en login:', error);
             });
@@ -129,6 +135,7 @@ let usersController = {
             res.send('Ocurrió un error al cargar el perfil.', error);
         });
     },
+    
  
     perfilID: function (req, res) {
         // obtenemos el id del usuario de la url
