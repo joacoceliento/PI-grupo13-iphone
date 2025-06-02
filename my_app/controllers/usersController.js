@@ -45,6 +45,8 @@ let usersController = {
                     return res.send( "La contraseña es incorrecta.");
                 }
                 req.session.usuarioLogueado = usuario;
+                console.log("req.body.remember", req.body.remember);
+                
                     if (req.body.remember) {
                         // Si el usuario eligió recordar su sesión guardamos en una cookie
                         res.cookie('usuarioLogueado', usuario.id, { maxAge: 1000 * 60 * 10 }); //10 minutos
