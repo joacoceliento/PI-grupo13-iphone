@@ -1,4 +1,3 @@
-const info = require('../db/info');
 const db = require('../database/models');
 const bcrypt = require('bcryptjs');
 
@@ -49,8 +48,8 @@ let usersController = {
                     if (req.body.remember) {
                         // Si el usuario eligió recordar su sesión guardamos en una cookie
                         res.cookie('usuarioLogueado', usuario.id, { maxAge: 1000 * 60 * 10 }); //10 minutos
-                        
                     }
+
                 // Si todo está bien, redirigir al perfil 
                 res.redirect('/users');
             })

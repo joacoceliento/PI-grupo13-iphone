@@ -16,7 +16,14 @@
 		<div class="d-flex align-items-center">
 			<h2 class="products-title"><%= producto.nombre %></h2> 
 			<p class="product-detail-description">
-				<a href="/product/add">Editar</a>
+				
+				<% if (locals.user != undefined) { %>
+					<a href="/product/add">Editar</a>
+			  <% } else { %>
+					<a href="/users/login">Editar</a>
+			  <% } %>
+				
+				
 			</p>
 		</div>
 		<div class="product-detail">

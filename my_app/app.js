@@ -29,17 +29,24 @@ app.use(session({ secret: "nuestro mensaje secreto",
 
 // Middleware para guardar el usuario logueado en res.locals
 app.use(function(req, res, next) {
-  if (req.session.usuarioLogueado !== undefined) {
+  if (req.session.usuarioLogueado) {
     res.locals.user = req.session.usuarioLogueado;
-    res.locals.usuario = req.session.usuarioLogueado;
   } else {
     res.locals.user = null;
   }
   return next();
 });
 
+app.use(function (req, res, next) {
+  if (req.cookies.user != undefined && req.session.user == undefined) {
+      res.locals.user = req.cookies.user;
+      req.session.user = req.cookies.user;
+  }
+  return next();
 
-app.use('/index', indexRouter);
+})
+
+app.use('/', indexRouter);
 app.use('/product', productRouter);
 app.use('/users', usersRouter);
 

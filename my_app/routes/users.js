@@ -5,7 +5,6 @@ const usersController = require('../controllers/usersController');
 
 // Ruta para regitrarse 
 router.get('/register', usersController.register)
-
 router.post('/register', usersController.create)
 
 // Ruta para logiarse
@@ -18,7 +17,7 @@ router.get('/', usersController.perfil)
 // Ruta para ver el perfil de un usuario especifico
 router.get('/id/:id', usersController.perfilID)
 
-// ruta logout
+// Ruta logout
 router.post('/logout', usersController.logout)
 
 module.exports = router

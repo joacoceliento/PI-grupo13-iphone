@@ -81,7 +81,7 @@ let productController = {
             user_id: req.session.usuarioLogueado.id,
         })
         .then(function (productos) {
-            return res.redirect('/index')
+            return res.redirect('/')
         })
         .catch(function (error) {
             console.error("Error al crear producto:", error);
