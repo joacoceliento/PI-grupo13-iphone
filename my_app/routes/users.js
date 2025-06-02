@@ -14,7 +14,8 @@ router.post('/login', usersController.createlogin)
 
 // Ruta al perfil
 router.get('/', usersController.perfil)
-// ruta para ver el perfil de un usuario especifico
+
+// Ruta para ver el perfil de un usuario especifico
 router.get('/id/:id', usersController.perfilID)
 
 // ruta logout

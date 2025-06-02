@@ -51,7 +51,6 @@ let usersController = {
             })
             .catch(function(error) {
                 console.log('Error en login:', error);
-                res.send('Ocurrió un error al intentar iniciar sesión.');
             });
     },
 
@@ -98,7 +97,6 @@ let usersController = {
             })
             .catch(function(error) {
                 console.log('Error al crear usuario:', error);
-                res.send('Ocurrió un error al registrar el usuario.');
             });
     }, 
     perfil: function (req, res) {

@@ -28,7 +28,6 @@ let productController = {
         })
         .catch(function (error) {
             console.error("Error en productController:", error);
-            res.send("Error al cargar productos.");
         })
     },
 
@@ -47,7 +46,6 @@ let productController = {
         })
         .catch(function (error) {
             console.error("Error al crear producto:", error);
-            res.status(500).send("Error al crear producto");
         });
         
     },
@@ -87,7 +85,6 @@ let productController = {
         })
         .catch(function (error) {
             console.error("Error al crear producto:", error);
-            res.status(500).send("Error al crear producto");
         });
     },
 
@@ -111,7 +108,9 @@ let productController = {
                 res.send('No hay resultados para su criterio de búsqueda')
             }
         })
-        /*let productos = info.productos;*/
+        .catch(function (error) {
+            console.error("Error al buscar el producto:", error);
+        });
     },
 
 }
